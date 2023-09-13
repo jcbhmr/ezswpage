@@ -1,0 +1,13 @@
+<script>
+  navigator.serviceWorker.register("sw.js");
+</script>
+<script src="../src/index.ts"></script>
+
+<script type="module">
+  console.log(
+    navigator.serviceWorker,
+    navigator.serviceWorker.controller,
+    navigator.serviceWorker.controller.state,
+    navigator.serviceWorker.controller.scriptURL
+  );
+</script>
