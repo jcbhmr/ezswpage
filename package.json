@@ -1,6 +1,31 @@
 {
+  "name": "ezswpage",
+  "description": "👷‍♂️ Stop all loading of the page until the service worker has registered",
+  "repository": "github:jcbhmr/ezswpage",
+  "homepage": "https://jcbhmr.me/ezswpage/",
+  "contributors": [
+    "Jacob Hummer <jcbhmr@outlook.com> (https://jcbhmr.me/)"
+  ],
+  "bugs": "https://github.com/jcbhmr/ezswpage/issues",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "dist/index.js",
   "scripts": {
     "build": "vite build",
-    "test": "vite"
+    "dev": "vite build -w",
+    "test": "run-p dev test:html",
+    "test:html": "vite",
+    "format": "prettier -w .",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.4"
   }
 }

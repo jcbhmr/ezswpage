@@ -1,13 +1,26 @@
 <script>
-  navigator.serviceWorker.register("sw.js");
+  console.log(
+    "%cscript before",
+    "color: red",
+    navigator.serviceWorker.controller?.state,
+    navigator.serviceWorker.controller?.scriptURL,
+  );
 </script>
-<script src="../src/index.ts"></script>
+
+<script src="ezswpage.min.js"></script>
+<script>
+  navigator.serviceWorker.register("sw2.js");
+</script>
 
 <script type="module">
   console.log(
-    navigator.serviceWorker,
-    navigator.serviceWorker.controller,
-    navigator.serviceWorker.controller.state,
-    navigator.serviceWorker.controller.scriptURL
+    "%cmodule after",
+    "color: red",
+    navigator.serviceWorker.controller?.state,
+    navigator.serviceWorker.controller?.scriptURL,
   );
+
+  const response = await fetch("/fake-api");
+  const text = await response.text();
+  console.log("fake-api response", text);
 </script>
